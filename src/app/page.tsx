@@ -4,6 +4,7 @@ import { Hero } from '@/components/Hero';
 import { SectionHeading } from '@/components/SectionHeading';
 import { ContactSection } from '@/components/ContactSection';
 import { StructuredData } from '@/components/StructuredData';
+import { ElementIcon } from '@/components/ElementIcon';
 import { site, whatsappLink } from '@/content/site';
 import {
   categories,
@@ -116,8 +117,8 @@ function FourElements() {
         <div className="mt-16 grid grid-cols-2 gap-8 md:grid-cols-4">
           {fourElements.map((el) => (
             <div key={el.name} className="reveal text-center">
-              <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full border border-gold/40 bg-gold/5 text-3xl">
-                {el.symbol}
+              <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full border border-gold/40 bg-gold/5 text-gold-bright">
+                <ElementIcon name={el.name} className="h-9 w-9" />
               </div>
               <h3 className="mt-5 font-display text-lg tracking-[0.14em] !text-gold-bright uppercase">
                 {el.name}
@@ -145,7 +146,7 @@ function WhyVeraD() {
               alt="A Vera D therapist at work"
               fill
               sizes="(max-width: 1024px) 100vw, 45vw"
-              className="object-cover"
+              className="object-cover object-[50%_25%]"
             />
           </div>
 

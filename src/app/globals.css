@@ -13,6 +13,7 @@
   /* Gold family */
   --color-gold: #b08d57;
   --color-gold-deep: #7d5c34; /* AA-contrast gold for small text on cream */
+  --color-gold-bright: #e7bb40; /* bright gold accent — used on dark backgrounds */
   --color-bronze: #936f4f;
 
   /* Logo gold ramp (confirmed 2026-07-18) */

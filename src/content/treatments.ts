@@ -31,6 +31,8 @@ export type Category = {
   intro: string;
   /** Placeholder image for the category card / header. */
   image: string;
+  /** Tailwind object-position class — portrait photos in the wide header need a top bias to keep faces in frame. */
+  imagePosition?: string;
   treatments: Treatment[];
 };
 
@@ -268,6 +270,7 @@ export const categories: Category[] = [
     intro:
       'Advanced technology, natural beauty. True therapy for your skin and true relaxation for your soul — no injections, no surgery, no downtime.',
     image: '/images/photos/owner-facial.webp',
+    imagePosition: 'object-top',
     treatments: [
       {
         slug: 'luxury-facial-therapy',

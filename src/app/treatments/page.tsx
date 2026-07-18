@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { PageHero } from '@/components/PageHero';
 import { TreatmentCard } from '@/components/TreatmentCard';
 import { ContactSection } from '@/components/ContactSection';
+import { ElementIcon } from '@/components/ElementIcon';
 import { categories, fourElements } from '@/content/treatments';
 import { whatsappLink } from '@/content/site';
 
@@ -53,7 +54,7 @@ export default function TreatmentsPage() {
                   alt={cat.name}
                   fill
                   sizes="(max-width: 768px) 100vw, 45vw"
-                  className="object-cover"
+                  className={`object-cover ${cat.imagePosition ?? 'object-center'}`}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-green-deep/40 to-transparent" />
               </div>
@@ -92,8 +93,8 @@ export default function TreatmentsPage() {
           <div className="mt-10 grid grid-cols-2 gap-6 sm:grid-cols-4">
             {fourElements.map((el) => (
               <div key={el.name} className="flex flex-col items-center gap-2">
-                <span className="flex h-16 w-16 items-center justify-center rounded-full border border-gold/40 bg-gold/5 text-2xl">
-                  {el.symbol}
+                <span className="flex h-16 w-16 items-center justify-center rounded-full border border-gold/40 bg-gold/5 text-gold-bright">
+                  <ElementIcon name={el.name} className="h-8 w-8" />
                 </span>
                 <span className="font-display text-sm tracking-[0.14em] text-gold-bright uppercase">
                   {el.name}

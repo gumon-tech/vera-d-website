@@ -6,11 +6,14 @@ export function PageHero({
   title,
   intro,
   image = '/images/photos/hero-massage.webp',
+  imagePosition = 'object-center',
 }: {
   eyebrow: string;
   title: string;
   intro?: string;
   image?: string;
+  /** Tailwind object-position class; wide banners crop portrait photos hard, so bias toward the subject. */
+  imagePosition?: string;
 }) {
   return (
     <section className="relative flex min-h-[56vh] items-center justify-center overflow-hidden pt-24">
@@ -20,7 +23,7 @@ export function PageHero({
         fill
         priority
         sizes="100vw"
-        className="object-cover"
+        className={`object-cover ${imagePosition}`}
       />
       <div className="absolute inset-0 bg-gradient-to-b from-green-deep/88 via-green-deep/72 to-espresso/90" />
       <div className="relative z-10 mx-auto max-w-2xl px-6 py-20 text-center">
