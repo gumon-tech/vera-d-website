@@ -32,8 +32,8 @@ export default function AcademyPage() {
         eyebrow="Vera-D Group"
         title="Taitam-D Academy"
         intro="The teaching heritage behind Vera D Royal Wellness — where our craft is passed on."
-        image="/images/photos/owner-guasha.webp"
-        imagePosition="object-[50%_6%]"
+        image="/images/photos/hero-head-spa.webp"
+        imagePosition="object-center"
       />
 
       <section className="py-24">
