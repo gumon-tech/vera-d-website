@@ -105,11 +105,11 @@ export default function StoryPage() {
         <div className="mx-auto grid max-w-6xl gap-12 px-6 lg:grid-cols-2 lg:items-center lg:px-8">
           <div className="reveal relative aspect-[4/5] overflow-hidden rounded-2xl border border-gold/20">
             <Image
-              src="/images/photos/owner-facial.webp"
-              alt="Care and craft at Vera D Royal Wellness"
+              src="/images/photos/owner-guasha.webp"
+              alt="Vera D Royal Wellness founder performing a Gua Sha facial"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover object-top"
+              className="object-cover object-[50%_22%]"
             />
           </div>
           <div className="reveal">
