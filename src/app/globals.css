@@ -1,0 +1,192 @@
+@import 'tailwindcss';
+
+/* ------------------------------------------------------------------ *
+ * Vera D Royal Wellness — theme tokens (from assets/docs/design-tokens.md)
+ * Palette sampled from the real posters + confirmed gold logo ramp.
+ * ------------------------------------------------------------------ */
+@theme {
+  /* Surfaces */
+  --color-cream: #f5efe6;
+  --color-cream-card: #fbf7f0;
+  --color-cream-deep: #ece2d3;
+
+  /* Gold family */
+  --color-gold: #b08d57;
+  --color-gold-deep: #7d5c34; /* AA-contrast gold for small text on cream */
+  --color-bronze: #936f4f;
+
+  /* Logo gold ramp (confirmed 2026-07-18) */
+  --color-logo-gold-shadow: #704305;
+  --color-logo-gold: #b4882f;
+  --color-logo-gold-bright: #e7bb40;
+  --color-logo-gold-sheen: #fcde5c;
+
+  /* Greens */
+  --color-green: #1c4030;
+  --color-green-deep: #0e2a1c;
+
+  /* Dark luxury (facial section) */
+  --color-brown-dark: #362511;
+  --color-espresso: #241a12;
+
+  /* Text */
+  --color-ink: #3a342c;
+  --color-ink-soft: #6b6155;
+
+  /* Fonts — bound to next/font CSS variables in layout.tsx */
+  --font-display: var(--font-cinzel), Georgia, serif;
+  --font-heading: var(--font-cormorant), Georgia, serif;
+  --font-body: var(--font-jost), 'Helvetica Neue', Helvetica, sans-serif;
+  --font-script: var(--font-great-vibes), 'Cormorant Garamond', cursive;
+
+  /* Spacing rhythm for section blocks */
+  --spacing-section: 6rem;
+}
+
+/* ------------------------------------------------------------------ *
+ * Base
+ * ------------------------------------------------------------------ */
+@layer base {
+  html {
+    /* offset for the fixed header when jumping to #anchors */
+    scroll-padding-top: 5.5rem;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-feature-settings: 'liga' 1, 'calt' 1;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    color: var(--color-green);
+    font-weight: 500;
+  }
+
+  ::selection {
+    background-color: var(--color-gold);
+    color: #fff;
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ * Reusable brand utilities
+ * ------------------------------------------------------------------ */
+@layer components {
+  /* Section eyebrow label — Jost caps with wide tracking, gold */
+  .eyebrow {
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 0.32em;
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--color-gold-deep);
+  }
+
+  /* Display heading — Cinzel caps */
+  .display {
+    font-family: var(--font-display);
+    letter-spacing: 0.04em;
+    line-height: 1.08;
+  }
+
+  /* Gold gradient text using the confirmed logo ramp */
+  .text-gold-gradient {
+    background: linear-gradient(
+      100deg,
+      var(--color-logo-gold-shadow) 0%,
+      var(--color-logo-gold) 30%,
+      var(--color-logo-gold-bright) 62%,
+      var(--color-logo-gold) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Thin gold hairline */
+  .rule-gold {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--color-gold) 20%,
+      var(--color-logo-gold-bright) 50%,
+      var(--color-gold) 80%,
+      transparent
+    );
+  }
+
+  /* Primary pill CTA */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    padding: 0.9rem 2rem;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, var(--color-logo-gold) 0%, var(--color-gold-deep) 100%);
+    color: #fff5e1;
+    box-shadow: 0 8px 24px -8px rgba(112, 67, 5, 0.55);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.06);
+    box-shadow: 0 14px 30px -10px rgba(112, 67, 5, 0.6);
+  }
+
+  /* Outline pill CTA */
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    padding: 0.9rem 2rem;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    border: 1px solid var(--color-gold);
+    color: var(--color-gold-deep);
+    background: transparent;
+    transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+  }
+  .btn-outline:hover {
+    background: var(--color-gold);
+    color: #fff;
+    transform: translateY(-2px);
+  }
+}
+
+/* Reveal-on-scroll (progressive enhancement).
+ * Only hides content when JS is present (html.js); without JS everything shows. */
+@layer utilities {
+  .js .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .js .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .js .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+}

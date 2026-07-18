@@ -1,0 +1,27 @@
+# dependencies
+/node_modules
+
+# next.js
+/.next/
+/out/
+next-env.d.ts
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+
+# env
+.env*.local
+
+# typescript
+*.tsbuildinfo
+
+# internal planning & source materials — kept local, not published to the public repo
+# (the deployable, optimised assets already live in /public)
+/assets/
+/PLAN.md
+/CLAUDE.md
+/.claude/
