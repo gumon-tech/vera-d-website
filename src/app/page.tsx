@@ -209,33 +209,20 @@ function StoryTeaser() {
 
 /* ---------------------------------------------------------------- */
 
-/** Dark expressive brand badge — the script "VeraD" on slate, per คุณนก's note. */
+/** Dark brand badge — the official full-logo lockup on espresso; never rebuild the lockup in HTML. */
 function BrandBadge() {
   return (
     <section className="relative overflow-hidden bg-espresso py-28 text-center">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(180,136,47,0.16),transparent_65%)]" />
       <div className="relative mx-auto max-w-2xl px-6">
         <Image
-          src="/logos/vera-d-mark.webp"
-          alt=""
-          width={90}
-          height={90}
-          className="mx-auto h-16 w-16 object-contain"
+          src="/logos/vera-d-logo-full.webp"
+          alt="Vera D Royal Wellness by TaitamD Academy — Exclusive Therapy for Body & Soul"
+          width={560}
+          height={550}
+          className="mx-auto h-auto w-72 drop-shadow-[0_6px_24px_rgba(0,0,0,0.45)] sm:w-96"
         />
-        <p className="mt-8 font-script text-6xl leading-none text-gold-gradient sm:text-7xl">
-          Vera D
-        </p>
-        <p className="mt-4 font-display text-sm tracking-[0.4em] text-cream/80 uppercase">
-          Royal Wellness
-        </p>
-        <div className="mx-auto mt-6 h-px w-40 rule-gold" />
-        <p className="mt-6 font-heading text-xl italic text-cream/70">
-          {site.positioning}
-        </p>
-        <p className="mt-2 font-body text-[0.7rem] tracking-[0.3em] text-gold uppercase">
-          {site.heritage}
-        </p>
-        <div className="mt-10">
+        <div className="mt-12">
           <a
             href={whatsappLink()}
             target="_blank"

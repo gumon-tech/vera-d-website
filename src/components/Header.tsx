@@ -123,10 +123,12 @@ export function Header() {
         </button>
       </div>
 
-      {/* Mobile drawer */}
+      {/* Mobile drawer — fills the screen below the header so nothing peeks through */}
       <div
-        className={`overflow-hidden border-t border-gold/15 bg-cream transition-[max-height,opacity] duration-500 lg:hidden ${
-          open ? 'max-h-[80vh] opacity-100' : 'max-h-0 opacity-0'
+        className={`overflow-y-auto border-t border-gold/15 bg-cream transition-[height,opacity] duration-500 lg:hidden ${
+          open
+            ? 'h-[calc(100dvh-4.75rem)] opacity-100'
+            : 'h-0 opacity-0'
         }`}
       >
         <nav className="mx-auto flex max-w-6xl flex-col gap-1 px-6 py-6">
